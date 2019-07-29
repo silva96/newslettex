@@ -5,7 +5,7 @@ config :newslettex, Newslettex.Repo,
   username: "postgres",
   password: "",
   database: "newslettex_test",
-  hostname: "postgresql",
+  hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,
