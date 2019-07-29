@@ -9,7 +9,7 @@ env:
   - MIX_ENV=test
 
 addons:
-  postgresql: '11.4'
+  postgresql: '9.6'
 
 services:
   - postgresql
