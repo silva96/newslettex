@@ -12,6 +12,6 @@ ADD assets/package.json assets/
 RUN cd assets && \
     npm install
 
-ADD . .
+COPY . .
 
 CMD ["mix", "phx.server"]

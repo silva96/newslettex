@@ -9,9 +9,10 @@ defmodule NewslettexWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
+  # Commented until we use it.
+  # pipeline :api do
+  #   plug :accepts, ["json"]
+  # end
 
   scope "/", NewslettexWeb do
     pipe_through :browser
