@@ -14,10 +14,4 @@ RUN cd assets && \
 
 ADD . .
 
-RUN chown default -R /opt/app/_build
-RUN chown default -R /opt/app/priv
-
-USER default
-
-
 CMD ["mix", "phx.server"]
