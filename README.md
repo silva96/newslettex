@@ -10,7 +10,7 @@
 
 ### Testing
 
-- MIX_ENV=test mix test
+- MIX_ENV=test mix test --trace
 - MIX_ENV=test mix coveralls.html
 
 ## License
