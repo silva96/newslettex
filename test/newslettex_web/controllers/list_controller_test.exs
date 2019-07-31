@@ -75,6 +75,7 @@ defmodule NewslettexWeb.ListControllerTest do
     test "deletes chosen list", %{conn: conn, list: list} do
       conn = delete(conn, Routes.list_path(conn, :delete, list))
       assert redirected_to(conn) == Routes.list_path(conn, :index)
+
       assert_error_sent 404, fn ->
         get(conn, Routes.list_path(conn, :show, list))
       end

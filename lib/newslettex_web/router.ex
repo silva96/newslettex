@@ -19,6 +19,8 @@ defmodule NewslettexWeb.Router do
 
     get "/", PageController, :index
     resources "/lists", ListController
+    resources "/campaign_groups", CampaignGroupController
+    resources "/campaigns", CampaignController
   end
 
   # Other scopes may use custom stacks.
