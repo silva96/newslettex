@@ -42,4 +42,46 @@ defmodule Newslettex.EctoEnumsTest do
       assert length(changeset.errors) == 0
     end
   end
+
+  describe "CampaignContactEventTypeEnum" do
+    alias Newslettex.Newsletter.CampaignContactEvent
+
+    test "it has the correct map values" do
+      assert CampaignContactEventTypeEnum.__enum_map__() == [
+               :send,
+               :delivery,
+               :open,
+               :click,
+               :bounce,
+               :complaint,
+               :reject
+             ]
+    end
+
+    test "raises when input is not in the enum map" do
+      error =
+        {:event_type, {"is invalid", [type: CampaignContactEventTypeEnum, validation: :cast]}}
+
+      changeset =
+        Ecto.Changeset.cast(
+          %CampaignContactEvent{},
+          %{"event_type" => "a_not_valid_event_type"},
+          [:event_type]
+        )
+
+      assert error in changeset.errors
+    end
+
+    test "doesn't raise when input is in the enum map" do
+      changeset =
+        Ecto.Changeset.cast(%CampaignContactEvent{}, %{"event_type" => "send"}, [:event_type])
+
+      assert length(changeset.errors) == 0
+
+      changeset =
+        Ecto.Changeset.cast(%CampaignContactEvent{}, %{"event_type" => :reject}, [:event_type])
+
+      assert length(changeset.errors) == 0
+    end
+  end
 end

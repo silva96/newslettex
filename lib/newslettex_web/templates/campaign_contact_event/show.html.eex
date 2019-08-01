@@ -1,0 +1,18 @@
+<h1>Show Campaign contact event</h1>
+
+<ul>
+
+  <li>
+    <strong>Event type:</strong>
+    <%= @campaign_contact_event.event_type %>
+  </li>
+
+  <li>
+    <strong>Smtp message:</strong>
+    <%= @campaign_contact_event.smtp_message_id %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.campaign_contact_event_path(@conn, :edit, @campaign_contact_event) %></span>
+<span><%= link "Back", to: Routes.campaign_contact_event_path(@conn, :index) %></span>

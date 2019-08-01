@@ -293,4 +293,196 @@ defmodule Newslettex.Newsletter do
   def change_campaign(%Campaign{} = campaign) do
     Campaign.changeset(campaign, %{})
   end
+
+  alias Newslettex.Newsletter.Contact
+
+  @doc """
+  Returns the list of contacts.
+
+  ## Examples
+
+      iex> list_contacts()
+      [%Contact{}, ...]
+
+  """
+  def list_contacts do
+    Repo.all(Contact)
+  end
+
+  @doc """
+  Gets a single contact.
+
+  Raises `Ecto.NoResultsError` if the Contact does not exist.
+
+  ## Examples
+
+      iex> get_contact!(123)
+      %Contact{}
+
+      iex> get_contact!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_contact!(id), do: Repo.get!(Contact, id)
+
+  @doc """
+  Creates a contact.
+
+  ## Examples
+
+      iex> create_contact(%{field: value})
+      {:ok, %Contact{}}
+
+      iex> create_contact(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_contact(attrs \\ %{}) do
+    %Contact{}
+    |> Contact.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a contact.
+
+  ## Examples
+
+      iex> update_contact(contact, %{field: new_value})
+      {:ok, %Contact{}}
+
+      iex> update_contact(contact, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_contact(%Contact{} = contact, attrs) do
+    contact
+    |> Contact.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a Contact.
+
+  ## Examples
+
+      iex> delete_contact(contact)
+      {:ok, %Contact{}}
+
+      iex> delete_contact(contact)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_contact(%Contact{} = contact) do
+    Repo.delete(contact)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking contact changes.
+
+  ## Examples
+
+      iex> change_contact(contact)
+      %Ecto.Changeset{source: %Contact{}}
+
+  """
+  def change_contact(%Contact{} = contact) do
+    Contact.changeset(contact, %{})
+  end
+
+  alias Newslettex.Newsletter.CampaignContactEvent
+
+  @doc """
+  Returns the list of campaign_contact_events.
+
+  ## Examples
+
+      iex> list_campaign_contact_events()
+      [%CampaignContactEvent{}, ...]
+
+  """
+  def list_campaign_contact_events do
+    Repo.all(CampaignContactEvent)
+  end
+
+  @doc """
+  Gets a single campaign_contact_event.
+
+  Raises `Ecto.NoResultsError` if the Campaign contact event does not exist.
+
+  ## Examples
+
+      iex> get_campaign_contact_event!(123)
+      %CampaignContactEvent{}
+
+      iex> get_campaign_contact_event!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_campaign_contact_event!(id), do: Repo.get!(CampaignContactEvent, id)
+
+  @doc """
+  Creates a campaign_contact_event.
+
+  ## Examples
+
+      iex> create_campaign_contact_event(%{field: value})
+      {:ok, %CampaignContactEvent{}}
+
+      iex> create_campaign_contact_event(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_campaign_contact_event(attrs \\ %{}) do
+    %CampaignContactEvent{}
+    |> CampaignContactEvent.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a campaign_contact_event.
+
+  ## Examples
+
+      iex> update_campaign_contact_event(campaign_contact_event, %{field: new_value})
+      {:ok, %CampaignContactEvent{}}
+
+      iex> update_campaign_contact_event(campaign_contact_event, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_campaign_contact_event(%CampaignContactEvent{} = campaign_contact_event, attrs) do
+    campaign_contact_event
+    |> CampaignContactEvent.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a CampaignContactEvent.
+
+  ## Examples
+
+      iex> delete_campaign_contact_event(campaign_contact_event)
+      {:ok, %CampaignContactEvent{}}
+
+      iex> delete_campaign_contact_event(campaign_contact_event)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_campaign_contact_event(%CampaignContactEvent{} = campaign_contact_event) do
+    Repo.delete(campaign_contact_event)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking campaign_contact_event changes.
+
+  ## Examples
+
+      iex> change_campaign_contact_event(campaign_contact_event)
+      %Ecto.Changeset{source: %CampaignContactEvent{}}
+
+  """
+  def change_campaign_contact_event(%CampaignContactEvent{} = campaign_contact_event) do
+    CampaignContactEvent.changeset(campaign_contact_event, %{})
+  end
 end

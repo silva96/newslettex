@@ -1,12 +1,13 @@
 defmodule Newslettex.Newsletter.CampaignGroup do
-  alias Newslettex.Newsletter.Campaign
   use Ecto.Schema
   import Ecto.Changeset
+
+  alias Newslettex.Newsletter.Campaign
 
   schema "campaign_groups" do
     field :name, :string
 
-    has_many(:campaigns, Campaign)
+    has_many :campaigns, Campaign
     timestamps()
   end
 

@@ -1,0 +1,28 @@
+<h1>Listing Contacts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Unsuscribed</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for contact <- @contacts do %>
+    <tr>
+      <td><%= contact.email %></td>
+      <td><%= contact.unsuscribed %></td>
+
+      <td>
+        <%= link "Show", to: Routes.contact_path(@conn, :show, contact) %>
+        <%= link "Edit", to: Routes.contact_path(@conn, :edit, contact) %>
+        <%= link "Delete", to: Routes.contact_path(@conn, :delete, contact), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Contact", to: Routes.contact_path(@conn, :new) %></span>
