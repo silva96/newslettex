@@ -1,0 +1,13 @@
+<h1>Show Campaign group</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @campaign_group.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.campaign_group_path(@conn, :edit, @campaign_group) %></span>
+<span><%= link "Back", to: Routes.campaign_group_path(@conn, :index) %></span>

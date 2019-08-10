@@ -1,0 +1,88 @@
+<h1>Show Campaign</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @campaign.name %>
+  </li>
+
+  <li>
+    <strong>Sender:</strong>
+    <%= @campaign.sender %>
+  </li>
+
+  <li>
+    <strong>Subject:</strong>
+    <%= @campaign.subject %>
+  </li>
+
+  <li>
+    <strong>Body:</strong>
+    <%= @campaign.body %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @campaign.status %>
+  </li>
+
+  <li>
+    <strong>Smtp message:</strong>
+    <%= @campaign.smtp_message_id %>
+  </li>
+
+  <li>
+    <strong>Sent:</strong>
+    <%= @campaign.sent %>
+  </li>
+
+  <li>
+    <strong>Delivered:</strong>
+    <%= @campaign.delivered %>
+  </li>
+
+  <li>
+    <strong>Opened:</strong>
+    <%= @campaign.opened %>
+  </li>
+
+  <li>
+    <strong>Clicked:</strong>
+    <%= @campaign.clicked %>
+  </li>
+
+  <li>
+    <strong>Unique opened:</strong>
+    <%= @campaign.unique_opened %>
+  </li>
+
+  <li>
+    <strong>Unique clicked:</strong>
+    <%= @campaign.unique_clicked %>
+  </li>
+
+  <li>
+    <strong>Bounced:</strong>
+    <%= @campaign.bounced %>
+  </li>
+
+  <li>
+    <strong>Complained:</strong>
+    <%= @campaign.complained %>
+  </li>
+
+  <li>
+    <strong>Rejected:</strong>
+    <%= @campaign.rejected %>
+  </li>
+
+  <li>
+    <strong>Contacts size:</strong>
+    <%= @campaign.contacts_size %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.campaign_path(@conn, :edit, @campaign) %></span>
+<span><%= link "Back", to: Routes.campaign_path(@conn, :index) %></span>

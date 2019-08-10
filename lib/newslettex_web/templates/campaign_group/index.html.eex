@@ -1,0 +1,26 @@
+<h1>Listing Campaign groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for campaign_group <- @campaign_groups do %>
+    <tr>
+      <td><%= campaign_group.name %></td>
+
+      <td>
+        <%= link "Show", to: Routes.campaign_group_path(@conn, :show, campaign_group) %>
+        <%= link "Edit", to: Routes.campaign_group_path(@conn, :edit, campaign_group) %>
+        <%= link "Delete", to: Routes.campaign_group_path(@conn, :delete, campaign_group), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Campaign group", to: Routes.campaign_group_path(@conn, :new) %></span>

@@ -1,0 +1,75 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <%= label f, :name %>
+  <%= text_input f, :name %>
+  <%= error_tag f, :name %>
+
+  <%= label f, :sender %>
+  <%= text_input f, :sender %>
+  <%= error_tag f, :sender %>
+
+  <%= label f, :subject %>
+  <%= text_input f, :subject %>
+  <%= error_tag f, :subject %>
+
+  <%= label f, :body %>
+  <%= textarea f, :body %>
+  <%= error_tag f, :body %>
+
+  <%= label f, :status %>
+  <%= text_input f, :status %>
+  <%= error_tag f, :status %>
+
+  <%= label f, :smtp_message_id %>
+  <%= text_input f, :smtp_message_id %>
+  <%= error_tag f, :smtp_message_id %>
+
+  <%= label f, :sent %>
+  <%= number_input f, :sent %>
+  <%= error_tag f, :sent %>
+
+  <%= label f, :delivered %>
+  <%= number_input f, :delivered %>
+  <%= error_tag f, :delivered %>
+
+  <%= label f, :opened %>
+  <%= number_input f, :opened %>
+  <%= error_tag f, :opened %>
+
+  <%= label f, :clicked %>
+  <%= number_input f, :clicked %>
+  <%= error_tag f, :clicked %>
+
+  <%= label f, :unique_opened %>
+  <%= number_input f, :unique_opened %>
+  <%= error_tag f, :unique_opened %>
+
+  <%= label f, :unique_clicked %>
+  <%= number_input f, :unique_clicked %>
+  <%= error_tag f, :unique_clicked %>
+
+  <%= label f, :bounced %>
+  <%= number_input f, :bounced %>
+  <%= error_tag f, :bounced %>
+
+  <%= label f, :complained %>
+  <%= number_input f, :complained %>
+  <%= error_tag f, :complained %>
+
+  <%= label f, :rejected %>
+  <%= number_input f, :rejected %>
+  <%= error_tag f, :rejected %>
+
+  <%= label f, :contacts_size %>
+  <%= number_input f, :contacts_size %>
+  <%= error_tag f, :contacts_size %>
+
+  <div>
+    <%= submit "Save" %>
+  </div>
+<% end %>

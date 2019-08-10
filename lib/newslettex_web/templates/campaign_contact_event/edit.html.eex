@@ -1,0 +1,5 @@
+<h1>Edit Campaign contact event</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.campaign_contact_event_path(@conn, :update, @campaign_contact_event)) %>
+
+<span><%= link "Back", to: Routes.campaign_contact_event_path(@conn, :index) %></span>

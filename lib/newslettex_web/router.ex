@@ -18,6 +18,11 @@ defmodule NewslettexWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/lists", ListController
+    resources "/campaign_groups", CampaignGroupController
+    resources "/campaigns", CampaignController
+    resources "/contacts", ContactController
+    resources "/campaign_contact_events", CampaignContactEventController
   end
 
   # Other scopes may use custom stacks.

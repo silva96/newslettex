@@ -1,0 +1,28 @@
+<h1>Listing Campaign contact events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event type</th>
+      <th>Smtp message</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for campaign_contact_event <- @campaign_contact_events do %>
+    <tr>
+      <td><%= campaign_contact_event.event_type %></td>
+      <td><%= campaign_contact_event.smtp_message_id %></td>
+
+      <td>
+        <%= link "Show", to: Routes.campaign_contact_event_path(@conn, :show, campaign_contact_event) %>
+        <%= link "Edit", to: Routes.campaign_contact_event_path(@conn, :edit, campaign_contact_event) %>
+        <%= link "Delete", to: Routes.campaign_contact_event_path(@conn, :delete, campaign_contact_event), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Campaign contact event", to: Routes.campaign_contact_event_path(@conn, :new) %></span>
