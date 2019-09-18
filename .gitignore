@@ -34,3 +34,6 @@ npm-debug.log
 /priv/static/
 
 .bash_history
+
+.config/
+.npm/
