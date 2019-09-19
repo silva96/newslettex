@@ -1,56 +1,56 @@
 <h1>Listing Campaigns</h1>
+<div class="container">
+<div class="table-container">
+  <table class="table is-bordered is-stripped is-narrow is-hoverable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Sender</th>
+        <th>Subject</th>
+        <th>Body</th>
+        <th>Status</th>
+        <th>Smtp message</th>
+        <th>Sent</th>
+        <th>Delivered</th>
+        <th>Opened</th>
+        <th>Clicked</th>
+        <th>Unique opened</th>
+        <th>Unique clicked</th>
+        <th>Bounced</th>
+        <th>Complained</th>
+        <th>Rejected</th>
+        <th>Contacts size</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+  <%= for campaign <- @campaigns do %>
+      <tr>
+        <td><%= campaign.name %></td>
+        <td><%= campaign.sender %></td>
+        <td><%= campaign.subject %></td>
+        <td><%= campaign.body %></td>
+        <td><%= campaign.status %></td>
+        <td><%= campaign.smtp_message_id %></td>
+        <td><%= campaign.sent %></td>
+        <td><%= campaign.delivered %></td>
+        <td><%= campaign.opened %></td>
+        <td><%= campaign.clicked %></td>
+        <td><%= campaign.unique_opened %></td>
+        <td><%= campaign.unique_clicked %></td>
+        <td><%= campaign.bounced %></td>
+        <td><%= campaign.complained %></td>
+        <td><%= campaign.rejected %></td>
+        <td><%= campaign.contacts_size %></td>
+        <td><%= link "Show", to: Routes.campaign_path(@conn, :show, campaign) %></td>
+        <td><%= link "Edit", to: Routes.campaign_path(@conn, :edit, campaign) %></td>
+        <td><%= link "Delete", to: Routes.campaign_path(@conn, :delete, campaign), method: :delete, data: [confirm: "Are you sure?"] %></td>
+      </tr>
+  <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Sender</th>
-      <th>Subject</th>
-      <th>Body</th>
-      <th>Status</th>
-      <th>Smtp message</th>
-      <th>Sent</th>
-      <th>Delivered</th>
-      <th>Opened</th>
-      <th>Clicked</th>
-      <th>Unique opened</th>
-      <th>Unique clicked</th>
-      <th>Bounced</th>
-      <th>Complained</th>
-      <th>Rejected</th>
-      <th>Contacts size</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for campaign <- @campaigns do %>
-    <tr>
-      <td><%= campaign.name %></td>
-      <td><%= campaign.sender %></td>
-      <td><%= campaign.subject %></td>
-      <td><%= campaign.body %></td>
-      <td><%= campaign.status %></td>
-      <td><%= campaign.smtp_message_id %></td>
-      <td><%= campaign.sent %></td>
-      <td><%= campaign.delivered %></td>
-      <td><%= campaign.opened %></td>
-      <td><%= campaign.clicked %></td>
-      <td><%= campaign.unique_opened %></td>
-      <td><%= campaign.unique_clicked %></td>
-      <td><%= campaign.bounced %></td>
-      <td><%= campaign.complained %></td>
-      <td><%= campaign.rejected %></td>
-      <td><%= campaign.contacts_size %></td>
-
-      <td>
-        <%= link "Show", to: Routes.campaign_path(@conn, :show, campaign) %>
-        <%= link "Edit", to: Routes.campaign_path(@conn, :edit, campaign) %>
-        <%= link "Delete", to: Routes.campaign_path(@conn, :delete, campaign), method: :delete, data: [confirm: "Are you sure?"] %>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
 
 <span><%= link "New Campaign", to: Routes.campaign_path(@conn, :new) %></span>
