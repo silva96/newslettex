@@ -1,0 +1,45 @@
+<nav class="navbar" role="navigation" aria-label="mobile navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="<%= Routes.page_path(@conn, :index) %>">
+      <img src='<%= Routes.static_path(@conn, "/images/newslettex-logo.png") %>' width="200" height="22" />
+    </a>
+
+    <a
+      onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');"
+      role="button"
+      class="navbar-burger burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarBasicExample"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+
+    </div>
+    <div class="navbar-end ">
+      <%= if @logged_in do %>
+        <div class="is-hidden-desktop">
+          <a class="navbar-item" href="<%= Routes.campaign_path(@conn, :index) %>">Campaigns</a>
+          <a class="navbar-item" href="<%= Routes.list_path(@conn, :index) %>">Lists</a>
+          <a class="navbar-item" href="<%= Routes.campaign_group_path(@conn, :index) %>">Campaign Groups</a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">More</a>
+            <div class="navbar-dropdown">
+              <%= render(NewslettexWeb.Shared.NavbarView, "_more.html") %>
+            </div>
+          </div>
+        </div>
+        <div class="is-flex-desktop is-hidden-touch">
+          <%= render(NewslettexWeb.Shared.NavbarView, "_more.html") %>
+        </div>
+      <% else %>
+        <%= render(NewslettexWeb.Shared.NavbarView, "_more.html") %>
+      <% end %>
+    </div>
+  </div>
+</nav>

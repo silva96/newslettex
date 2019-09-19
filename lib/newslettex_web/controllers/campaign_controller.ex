@@ -6,12 +6,19 @@ defmodule NewslettexWeb.CampaignController do
 
   def index(conn, _params) do
     campaigns = Newsletter.list_campaigns()
-    render(conn, "index.html", campaigns: campaigns)
+
+    conn
+    |> assign(:page_title, "Campaigns")
+    |> render("index.html", campaigns: campaigns)
   end
 
+  @spec new(Plug.Conn.t(), any) :: Plug.Conn.t()
   def new(conn, _params) do
     changeset = Newsletter.change_campaign(%Campaign{})
-    render(conn, "new.html", changeset: changeset)
+
+    conn
+    |> assign(:page_title, "New Campaign")
+    |> render( "new.html", changeset: changeset)
   end
 
   def create(conn, %{"campaign" => campaign_params}) do
@@ -28,13 +35,19 @@ defmodule NewslettexWeb.CampaignController do
 
   def show(conn, %{"id" => id}) do
     campaign = Newsletter.get_campaign!(id)
-    render(conn, "show.html", campaign: campaign)
+
+    conn
+    |> assign(:page_title, "#{campaign.name} details")
+    |> render("show.html", campaign: campaign)
   end
 
   def edit(conn, %{"id" => id}) do
     campaign = Newsletter.get_campaign!(id)
     changeset = Newsletter.change_campaign(campaign)
-    render(conn, "edit.html", campaign: campaign, changeset: changeset)
+
+    conn
+    |> assign(:page_title, "Edit #{campaign.name}")
+    |> render("edit.html", campaign: campaign, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "campaign" => campaign_params}) do
