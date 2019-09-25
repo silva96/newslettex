@@ -16,9 +16,14 @@ defmodule NewslettexWeb.CampaignController do
   def new(conn, _params) do
     changeset = Newsletter.change_campaign(%Campaign{})
 
+    campaign_groups = Newsletter.list_campaign_groups() |> Enum.map(&{&1.name, &1.id})
+    lists = Newsletter.list_lists() |> Enum.map(&{&1.name, &1.id})
+
+    IO.puts(inspect(lists))
+
     conn
     |> assign(:page_title, "New Campaign")
-    |> render( "new.html", changeset: changeset)
+    |> render("new.html", changeset: changeset, campaign_groups: campaign_groups, lists: lists)
   end
 
   def create(conn, %{"campaign" => campaign_params}) do
@@ -29,7 +34,10 @@ defmodule NewslettexWeb.CampaignController do
         |> redirect(to: Routes.campaign_path(conn, :show, campaign))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        campaign_groups = Newsletter.list_campaign_groups() |> Enum.map(&{&1.name, &1.id})
+        lists = Newsletter.list_lists() |> Enum.map(&{&1.name, &1.id})
+
+        render(conn, "new.html", changeset: changeset, campaign_groups: campaign_groups, lists: lists)
     end
   end
 
