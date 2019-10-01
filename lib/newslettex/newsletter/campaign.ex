@@ -1,4 +1,8 @@
 defmodule Newslettex.Newsletter.Campaign do
+  @moduledoc """
+  This module is the Campaign entity, it holds the schema to the database
+  table for campaigns in the newsletter app.
+  """
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -19,7 +23,7 @@ defmodule Newslettex.Newsletter.Campaign do
     field :sender, :string
     field :sent, :integer
     field :smtp_message_id, :string
-    field :status, CampaignStatusEnum
+    field :status, CampaignStatusEnum, default: :draft
     field :subject, :string
     field :unique_clicked, :integer
     field :unique_opened, :integer
@@ -57,18 +61,7 @@ defmodule Newslettex.Newsletter.Campaign do
       :sender,
       :subject,
       :body,
-      :status,
-      :smtp_message_id,
-      :sent,
-      :delivered,
-      :opened,
-      :clicked,
-      :unique_opened,
-      :unique_clicked,
-      :bounced,
-      :complained,
-      :rejected,
-      :contacts_size
+      :status
     ])
   end
 end

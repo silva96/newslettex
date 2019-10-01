@@ -39,7 +39,7 @@ defmodule NewslettexWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import NewslettexWeb.ErrorHelpers
+      import NewslettexWeb.BulmaHelpers
       import NewslettexWeb.Gettext
       alias NewslettexWeb.Router.Helpers, as: Routes
     end

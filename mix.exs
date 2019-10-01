@@ -42,6 +42,7 @@ defmodule Newslettex.MixProject do
       {:phoenix_html, "~> 2.11"},
       {:excoveralls, "~> 0.11.1"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:credo, "~> 1.1.0", only: [:dev, :test], runtime: false},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:ecto_enum, "~> 1.3"},

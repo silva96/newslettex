@@ -1,0 +1,20 @@
+<aside class="column is-2 is-hidden-touch">
+  <nav class="menu">
+    <p class="menu-label">General</p>
+    <ul class="menu-list">
+      <li><a class="is-active">Dashboard</a></li>
+      <li><a href="<%= Routes.campaign_path(@conn, :index) %>">Campaigns</a></li>
+      <li><a href="<%= Routes.list_path(@conn, :index) %>">Lists</a></li>
+      <li><a href="<%= Routes.campaign_group_path(@conn, :index) %>">Campaign Groups</a></li>
+    </ul>
+    <p class="menu-label">Placeholder Title</p>
+    <ul class="menu-list">
+      <li><a>Placeholder</a>
+        <ul>
+          <li><a>Placeholder</a></li>
+          <li><a>Placeholder</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</aside>
