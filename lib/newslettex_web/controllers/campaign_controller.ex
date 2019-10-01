@@ -37,7 +37,11 @@ defmodule NewslettexWeb.CampaignController do
         campaign_groups = Newsletter.list_campaign_groups() |> Enum.map(&{&1.name, &1.id})
         lists = Newsletter.list_lists() |> Enum.map(&{&1.name, &1.id})
 
-        render(conn, "new.html", changeset: changeset, campaign_groups: campaign_groups, lists: lists)
+        render(conn, "new.html",
+          changeset: changeset,
+          campaign_groups: campaign_groups,
+          lists: lists
+        )
     end
   end
 
