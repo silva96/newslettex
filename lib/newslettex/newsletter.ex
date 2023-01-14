@@ -227,7 +227,7 @@ defmodule Newslettex.Newsletter do
       ** (Ecto.NoResultsError)
 
   """
-  def get_campaign!(id), do: Repo.get!(Campaign, id)
+  def get_campaign!(id), do: Repo.get!(Campaign, id) |> Repo.preload([:campaign_group, :list])
 
   @doc """
   Creates a campaign.

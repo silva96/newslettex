@@ -16,9 +16,9 @@ defmodule Newslettex.EctoEnumsTest do
 
     test "doesn't raise when input is in the enum map" do
       changeset = Ecto.Changeset.cast(%List{}, %{"status" => "importing"}, [:status])
-      assert length(changeset.errors) == 0
+      assert Enum.empty?(changeset.errors)
       changeset = Ecto.Changeset.cast(%List{}, %{"status" => :importing}, [:status])
-      assert length(changeset.errors) == 0
+      assert Enum.empty?(changeset.errors)
     end
   end
 
@@ -37,9 +37,9 @@ defmodule Newslettex.EctoEnumsTest do
 
     test "doesn't raise when input is in the enum map" do
       changeset = Ecto.Changeset.cast(%Campaign{}, %{"status" => "draft"}, [:status])
-      assert length(changeset.errors) == 0
+      assert Enum.empty?(changeset.errors)
       changeset = Ecto.Changeset.cast(%Campaign{}, %{"status" => :sent}, [:status])
-      assert length(changeset.errors) == 0
+      assert Enum.empty?(changeset.errors)
     end
   end
 
@@ -76,12 +76,12 @@ defmodule Newslettex.EctoEnumsTest do
       changeset =
         Ecto.Changeset.cast(%CampaignContactEvent{}, %{"event_type" => "send"}, [:event_type])
 
-      assert length(changeset.errors) == 0
+      assert Enum.empty?(changeset.errors)
 
       changeset =
         Ecto.Changeset.cast(%CampaignContactEvent{}, %{"event_type" => :reject}, [:event_type])
 
-      assert length(changeset.errors) == 0
+      assert Enum.empty?(changeset.errors)
     end
   end
 end
